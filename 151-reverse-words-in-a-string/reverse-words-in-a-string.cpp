@@ -8,19 +8,19 @@ public:
             if (s[i] != ' ') {
                 w += s[i];
             } else if (w != "") {
-                words.insert(words.begin(), w);
+                words.push_back(w);
                 w = "";
             }
         }
 
         if (w != "") {
-            words.insert(words.begin(), w);
+            words.push_back(w);
         }
 
         s = "";
-        for (int i = 0; i < words.size(); i++) {
+        for (int i = words.size()-1; i >= 0; i--) {
             s += words[i];
-            if (i != words.size() - 1) {
+            if (i !=0) {
                 s += " ";
             }
         }
