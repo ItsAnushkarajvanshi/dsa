@@ -1,15 +1,11 @@
 class Solution {
 public:
     int repeatedNTimes(vector<int>& nums) {
-        map<int,int>p;
+        sort(nums.begin(),nums.end());
         int k;
-        for(int i=0;i<nums.size();i++){
-           int n=nums[i];
-            p[n]++;
-        }
-        for(auto const& [n,count]:p){
-            if(count>=2){
-                k=n;
+        for(int i=0;i<nums.size()-1;i++){
+            if(nums[i]==nums[i+1]){
+                k=nums[i];
                 break;
             }
         }
