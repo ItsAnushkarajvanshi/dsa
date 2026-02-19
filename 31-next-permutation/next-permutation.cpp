@@ -5,13 +5,13 @@ public:
         int k = -1;
         for(int i = n-1; i > 0; i--){
             if(nums[i] > nums[i-1]){
-                int m = INT_MAX;              
-                for(int j = i; j < n; j++){
-                    if(nums[j] > nums[i-1] && nums[j] < m){
-                        m = nums[j];
-                        k = j;
+                sort(nums.begin()+i,nums.end());
+                for(int j=i;j<n;j++){
+                    if(nums[i-1]<nums[j]){
+                        k=j;
+                        break;
                     }
-                }                
+                }
                 swap(nums[i-1], nums[k]);
                 sort(nums.begin()+i, nums.end());
                 return;
